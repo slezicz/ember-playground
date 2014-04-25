@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Search</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script type="text/x-handlebars">
+<h1>This is main body</h1>
+    {{#link-to 'search'}}Search{{/link-to}}
+    {{#link-to 'articles'}}Articles{{/link-to}}
+    {{outlet}}
+</script>
+
+<script type="text/x-handlebars" id="search">
+    <h1>search</h1>
+    {{input type="search" value=query}}
+    <button {{action results query}}>Search</button>
+</script>
+
+<script type="text/x-handlebars" id="articles">
+    <h1>results</h1>
+    {{#each}}
+        {{title}} <br>
+    {{/each}}
+</script>
+
+<script src="js/libs/jquery.min.js"></script>
+<script src="js/libs/handlebars.js"></script>
+<script src="js/libs/ember.js"></script>
+<script src="js/libs/ember-data.js"></script>
+<script src="js/libs/localstorage_adapter.js"></script>
+
+<script src="js/application.js"></script>
+<script src="js/router.js"></script>
+<script src="js/models/article.js"></script>
+
+</body>
+</html>
